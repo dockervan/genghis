@@ -1,0 +1,13 @@
+mongo:
+  image: mongo
+
+genghis:
+  image: genghis # Replace it by dockervan/genghis
+  links:
+    - mongo:db
+
+test:
+  image: tutum/curl
+  links:
+    - genghis
+  command: curl -I http://genghis:5678/

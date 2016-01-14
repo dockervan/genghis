@@ -19,4 +19,6 @@ else
     done
 fi
 
+genghisapp --version
+
 exec "$@"

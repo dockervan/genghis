@@ -2,6 +2,13 @@
 
 A very light "ready to use" [Genghis](https://github.com/bobthecow/genghis) app based on Alpine.
 
+## Supported tags and respective Dockerfile links
+
+* [`2.3`, `2`, `latest` (2.3/Dockerfile)](https://github.com/dockervan/genghis/blob/master/2.3/Dockerfile)
+* [`2.2` (2.2/Dockerfile)](https://github.com/dockervan/genghis/blob/master/2.2/Dockerfile)
+* [`2.1` (2.1/Dockerfile)](https://github.com/dockervan/genghis/blob/master/2.1/Dockerfile)
+* [`2.0` (2.0/Dockerfile)](https://github.com/dockervan/genghis/blob/master/2.0/Dockerfile)
+
 ## What is Genghis?
 
 Genghis is a single-file MongoDB admin app, by [Justin Hileman](http://justinhileman.info/).
