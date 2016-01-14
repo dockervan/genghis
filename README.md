@@ -53,6 +53,22 @@ Once the file created, link it on docker command:
 docker run --name genghis-app --link mongo-instance:db --volume /path/to/servers.custom:/servers.custom:ro dockervan/genghis
 ```
 
+### Docker compose
+
+Here a light example to use this image with docker-compose:
+
+```yml
+mongo:
+  image: mongo:2.6
+
+genghis:
+  image: dockervan/genghis
+  links:
+    - mongo:db
+  ports:
+    - '8101:5678'
+```
+
 ## Why using this image?
 
 In contrary to the other [Genghis images](https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=genghis&starCount=0),
