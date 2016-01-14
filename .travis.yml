@@ -1,0 +1,12 @@
+language: bash
+
+services:
+  - docker
+
+script:
+  - docker build -t dockervan/genghis .
+
+after_success:
+  - docker images
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then docker push dockervan/genghis; fi
