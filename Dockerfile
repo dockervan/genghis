@@ -10,8 +10,6 @@ RUN apk add --no-cache --virtual .deps ruby \
 EXPOSE 5678
 
 ADD entrypoint.sh /
-
-COPY entrypoint.sh /
 RUN chmod u+x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
