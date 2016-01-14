@@ -2,7 +2,6 @@
 
 set -e
 
-ls -l
 if [ -f servers.custom ]; then
     cp servers.custom servers
 else
