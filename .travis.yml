@@ -16,7 +16,7 @@ before_script:
 script:
   - ./configure.sh
   - cd $VERSION
-  - docker build -t genghis .
+  - docker build --pull -t genghis .
   - docker-compose run --rm test
 
 after_success:
