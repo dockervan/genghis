@@ -11,6 +11,7 @@ env:
 
 before_script:
   - export REPO=dockervan/genghis
+  - docker pull $REPO:$VERSION
 
 script:
   - ./configure.sh
