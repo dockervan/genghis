@@ -3,10 +3,25 @@ language: bash
 services:
   - docker
 
+env:
+  - VERSION=2.0
+  - VERSION=2.1
+  - VERSION=2.2
+  - VERSION=2.3
+
+before_script:
+  - export REPO=dockervan/genghis
+
 script:
-  - docker build -t dockervan/genghis .
+  - ./configure.sh
+  - cd $VERSION
+  - docker build -t genghis .
+  - docker-compose run --rm test
 
 after_success:
+  - docker tag genghis $REPO:$VERSION
+  - if [ "$VERSION" == "2.3" ]; then docker tag $REPO:$VERSION $REPO:2; fi
+  - if [ "$VERSION" == "2.3" ]; then docker tag $REPO:$VERSION $REPO:latest; fi
   - docker images
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then docker push dockervan/genghis; fi
+  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then docker push $REPO; fi
