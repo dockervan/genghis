@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.3
 
 MAINTAINER Sullivan SENECHAL <soullivaneuh@gmail.com>
 
